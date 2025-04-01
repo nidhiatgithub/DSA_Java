@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//Time complexity O(N log N)
 public class PairFinder {
     public static void main(String[] args) throws IOException {
-        System.out.println("Find no of all the pairs which sums up to targetValue");
+        System.out.println("Find no of all the pairs which sums up to targetValue from unsorted array");
 
         System.out.println("Enter the array separated by space");
         ArrayList<Integer> inputArray = CommonUtil.readArray(", ");
