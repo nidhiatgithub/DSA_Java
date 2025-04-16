@@ -37,4 +37,16 @@ public class CommonUtil {
         Scanner sc = new Scanner(System.in);
         return sc.next();
     }
+
+    public static void swap(ArrayList<Integer> integerArrayList, int start, int end) {
+        if(start == end) {
+            System.out.println("inside swapping indexes : "+ start + " ,"+ end);
+            return;
+        }
+
+        System.out.println("swapping indexes: "+ start + " ,"+ end);
+        int temp = integerArrayList.get(start);
+        integerArrayList.set(start, integerArrayList.get(end));
+        integerArrayList.set(end, temp);
+    }
 }
