@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.*;
 
 //Time complexity O(N), space complexity o(n)
+//As Shishir asked, not understanding hashTable but tried linkedList
 public class PairFinderThroughHashTable {
     public static void main(String[] args) throws IOException {
         System.out.println("Find no of all the pairs which sums up to targetValue");
