@@ -6,12 +6,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ScoreFinder {
     public static void main(String[] args) {
-        int[] shots = {3, 5, 10};
-        int score = 20;
-        int[] ways = new int[7];
+        int[] shots = {1,1,1,2,2};// {1,2,3,4,5};//{3, 5, 10};
+        int score = 4;//9;//20;
+        int[] ways = new int[9];
 
 //        scoreGeneratorRaw(shots, score);
-//        scoreGenerator(shots, ways, score, 0);
+        scoreGenerator(shots, ways, score, 0);
 //        AtomicInteger totalWays = new AtomicInteger(0);
 //        waysFinder(shots, score, totalWays);
 //        System.out.println("Total no of ways: "+ totalWays);
@@ -66,6 +66,7 @@ public class ScoreFinder {
      * @param totalSum
      * @param index
      */
+    //self
     private static void scoreGenerator(int[] shots, int[] ways, int totalSum, int index) {
         System.out.println("score generator: "+ Arrays.toString(ways) + ", " +totalSum + " , " +index);
         if(totalSum==0){
