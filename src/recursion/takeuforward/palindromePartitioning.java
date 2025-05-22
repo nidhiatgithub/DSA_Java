@@ -19,7 +19,7 @@ public class palindromePartitioning {
     private static void palindromePartitioner(String str, int index, List<List<String>> result, List<String> path) {
         if(index==str.length())
         {
-            //Very important to create new ArrayList from path as path is getting mutated 
+            //Very important to create new ArrayList from path as path is getting mutated
             result.add(new ArrayList<>(path));
             return;
         }
