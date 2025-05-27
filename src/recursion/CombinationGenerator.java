@@ -6,14 +6,14 @@ import java.util.List;
 public class CombinationGenerator {
     public static void main(String[] args) {
         char[] elements = {'d', 'i', 'n', 'a','m', 'h', 's'};
-        int combinationSize = 5;
+        int combinationSize = 2;
 
         List<String> combinations = new ArrayList<>();
         generateCombinations(elements, combinationSize, 0, "", combinations);
 
         System.out.println("Combinations:");
         for (String combination : combinations) {
-            System.out.println(combination);
+            System.out.print(combination+", ");
         }
     }
 
