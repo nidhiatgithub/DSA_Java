@@ -88,7 +88,42 @@ public class BinaryTree {
         return root;
     }
 
-    public Node lowestCommonAnscestors() {
-        return null;    
+    public Node lowestCommonAnscestors(Node root, Node node1, Node node2) {
+//        System.out.print("\nInside LCA:" + ((root != null)?root.data+", "+node1.data+", "+node2.data : ""));
+        if(root == null || root == node1 || root == node2)
+            return root;
+
+        Node leftLCA = lowestCommonAnscestors(root.left, node1, node2);
+        Node rightLCA = lowestCommonAnscestors(root.right, node1, node2);
+
+        if(leftLCA == null)
+            return rightLCA;
+
+        if(rightLCA == null)
+            return leftLCA;
+
+        return root;
+    }
+
+    public void rightSideView(Node node) {
+        if(node == null)
+            return;
+
+        do {
+            System.out.print(node.data+" ");
+            node = node.right != null ? node.right : node.left;
+        } while (node != null);
+    }
+
+    public void pathFinder(Node node, String path) {
+        if(node==null)
+            return;
+        if(node.left == null && node.right == null) {
+            System.out.print(path+"->"+node.data+", ");
+            return;
+        }
+
+        pathFinder(node.left, path + "->"+node.data);
+        pathFinder(node.right, path+"->"+node.data);
     }
 }

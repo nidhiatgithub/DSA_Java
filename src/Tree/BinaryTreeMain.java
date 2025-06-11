@@ -16,8 +16,17 @@ public class BinaryTreeMain {
         System.out.print("\nLevel order traversal: ");
         t.levelOrderTraversal(t.root);
 
+        System.out.print("\nLowest common anscestor: "+t.lowestCommonAnscestors(t.root, t.root.left.left,t.root.right.left).data);
+
+
         System.out.println("\nHeight of the tree:"+t.height(t.root));
         System.out.println("\nTree diameter: "+t.diameter(t.root));
+
+        System.out.print("Right side view of tree: ");
+        t.rightSideView(t.root);
+
+        System.out.print("\nAll paths from root to leaf:");
+        t.pathFinder(t.root,"");
     }
 
     static BinaryTree initialize () {

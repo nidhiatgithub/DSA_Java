@@ -11,9 +11,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 //Complexity - 2^n
 
+// int arr[] = {23, 45, -34, 12, 0, 98, -99, 4, 189, -1, 4};
+//totalMemory:532676608
+// Used memory: 6365064
+//
+//Complexity:2047
+//Time taken:4241600
 public class TugOfWar_2 {
     public static void main(String[] args) {
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         int arr[] = {23, 45, -34, 12, 0, 98, -99, 4, 189, -1, 4};
         int sum1=0,sum2=0;
         AtomicInteger diff=new AtomicInteger(10000);
@@ -36,7 +42,13 @@ public class TugOfWar_2 {
                 System.out.print(arr[i]+", ");
         }
 
-        long endTime = System.currentTimeMillis();
+        Runtime rt = Runtime.getRuntime();
+        long totalMemory = rt.totalMemory();
+        long freeMemory = rt.freeMemory();
+        long usedMemory = totalMemory - freeMemory;
+
+        System.out.println("\ntotalMemory:"+totalMemory/(1024*1024)+" MB\n Used memory: "+usedMemory/(1024*1024)+" MB\n");
+        long endTime = System.nanoTime();
         long elapsedTime = endTime-startTime;
         System.out.println("\nComplexity:"+loopCount.intValue());
         System.out.println("Time taken:"+elapsedTime);
@@ -72,4 +84,51 @@ public class TugOfWar_2 {
         arraySplitter(arr, arr1, arr2, currentIndex+1, sum1, sum2+arr[currentIndex], diff, selected,loopCount);
         arr2.removeLast();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
