@@ -1,7 +1,7 @@
-package src.Tree;
+package src.graph;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 public class GraphMat {
     int[][] mat;
@@ -12,6 +12,29 @@ public class GraphMat {
 
     public void addEdge(int i, int j) {
         this.mat[i][j]=1;
+    }
+
+    public void addWeightedEdge(int i, int j, int weight) {
+        this.mat[i][j]=weight;
+    }
+
+    //Return array of integers with value of shortest disstance
+    //If no path exist, then value to be -1
+    public int[] shortestPath() {
+        int V = mat.length;
+        int[] distance = new int[V];
+        distance[0]=0;
+        for(int i=1;i<V;i++) {
+            int shortestDistance = (mat[0][i]==0) ? -1 : mat[0][i];
+            for(int k=0;k<V;k++) {
+                int newDistance=(mat[0][k] != 0 && mat[k][i]!=0 )? distance[k]+mat[k][i] : -1;
+                if((shortestDistance == -1 && newDistance !=-1) ||
+                        (shortestDistance != -1 && newDistance != -1 && newDistance<shortestDistance))
+                    shortestDistance=newDistance;
+            }
+            distance[i]=shortestDistance;
+        }
+        return distance;
     }
 
     public void displayMatrix() {
